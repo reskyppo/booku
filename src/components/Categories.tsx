@@ -23,7 +23,7 @@ const Categories = () => {
           {categories.length > 0 &&
             categories?.map((category) => (
               <p
-                onClick={() => navigate(`${category.id}`)}
+                onClick={() => navigate(`${category.name}/${category.id}`)}
                 className="m-2 md:mr-2 w-fit border border-gray-400 rounded-md p-2 cursor-pointer"
               >
                 {category.name}

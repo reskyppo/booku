@@ -20,7 +20,7 @@ const Book = () => {
 
   useEffect(() => {
     axios
-      .get(`/fee-assessment-books?page=${page}&categoryId=${category}`)
+      .get(`/fee-assessment-books?page=${page}&categoryId=${category}&size=15`)
       .then((response) => {
         console.log(response);
         const book = response?.data?.filter(
