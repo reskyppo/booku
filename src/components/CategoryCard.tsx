@@ -23,7 +23,7 @@ const CategoryCard = ({ index, category, categoryId }: Props) => {
         <div className="flex justify-between items-center">
           <h3 className="text-xl my-2 font-semibold">{category}</h3>
           <p
-            onClick={() => navigate(`${categoryId}`)}
+            onClick={() => navigate(`/${category}/${categoryId}`)}
             className="cursor-pointer text-lg my-2 font-semibold"
           >
             See All
