@@ -33,7 +33,7 @@ const CategoryCard = ({ index, category, categoryId }: Props) => {
           {books.length > 0 &&
             books?.map((book) => (
               <div
-                className="cursor-pointer"
+                className="cursor-pointer truncate mr-1"
                 onClick={() => navigate(`${book.category_id}/${book.id}/0`)}
               >
                 <img className="w-3/4" src={book.cover_url} alt={book.title} />

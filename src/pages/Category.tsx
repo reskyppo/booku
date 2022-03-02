@@ -13,7 +13,6 @@ const Category = () => {
     const search = categories.filter((c) =>
       c.title.toLowerCase().includes(e.target.value)
     );
-    console.log(search);
     setResCategories(search);
   };
 
@@ -51,7 +50,7 @@ const Category = () => {
               <h2 className="text-xl font-bold">{c.title}</h2>
               <div className="flex">
                 {c.authors.map((a: string) => (
-                  <p className="font-semibold">{a}</p>
+                  <p className="font-semibold mr-2">{a}</p>
                 ))}
               </div>
               <p className="text-sm">{c.description}</p>
