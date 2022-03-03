@@ -12,7 +12,7 @@
 yarn
 
 # Runs the app in the development mode
-yarn dev
+yarn start
 
 # Build for production
 yarn build
