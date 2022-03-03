@@ -18,7 +18,7 @@ const CategoryCard = ({ index, category, categoryId }: Props) => {
       });
   }, [categoryId]);
   return (
-    <div className={`${index % 2 !== 0 ? "bg-white" : "bg-[#FFE299]"}`}>
+    <div className={`${index % 2 !== 0 ? "bg-white" : "bg-[#FFE299]"} px-2`}>
       <div className="container mx-auto py-4">
         <div className="flex justify-between items-center">
           <h3 className="text-xl my-2 font-semibold">{category}</h3>

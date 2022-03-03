@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { saveLocalStorage } from "../lib/utils";
 
 interface IBook {
   id: number;
@@ -14,23 +15,41 @@ interface IBook {
 }
 
 const Book = () => {
+  const data = JSON.parse(localStorage.getItem("prod") || "[]");
+
   const [book, setBook] = useState<IBook>();
-  const [chapters, setChapters] = useState<number>();
+  const [isFavorite, setIsFavorite] = useState<boolean>();
 
   let { category, id, page } = useParams();
+
+  const favBook = {
+    id: book?.id,
+    title: book?.title,
+    category_id: book?.category_id,
+    description: book?.description,
+    cover_url: book?.cover_url,
+    authors: book?.authors,
+    page: page,
+  };
+
+  const setFavorite = () => {
+    saveLocalStorage(favBook);
+    setIsFavorite(true);
+  };
 
   useEffect(() => {
     axios
       .get(`/fee-assessment-books?page=${page}&categoryId=${category}&size=15`)
       .then((response) => {
-        console.log(response);
         const book = response?.data?.filter(
-          (book: { id: number}) =>
-            book.id === parseInt(id || "")
+          (book: { id: number }) => book.id === parseInt(id || "")
         );
         setBook(book[0]);
+        const res = data.filter((item: { id: number }) => item.id === book[0]?.id);
+        res.length > 0 ? setIsFavorite(true) : setIsFavorite(false);
       });
   }, []);
+
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="bg-white max-w-screen shadow-xl py-6">
@@ -48,9 +67,14 @@ const Book = () => {
               ))}
             </div>
             <p className="text-sm">{book?.description}</p>
-            <button className="bg-rose-400 py-2 px-4 mt-2 rounded-md text-white">
-              Save as Favorite
-            </button>
+            {!isFavorite && (
+              <button
+                className="bg-rose-400 py-2 px-4 mt-2 rounded-md text-white"
+                onClick={() => setFavorite()}
+              >
+                Save as Favorite
+              </button>
+            )}
           </div>
         </div>
       </div>

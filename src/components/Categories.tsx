@@ -14,10 +14,13 @@ const Categories = () => {
   }, []);
   return (
     <>
-      <div className="container mx-auto my-4">
+      <div className="container mx-auto my-4 px-2">
         <h2 className="text-2xl m-2 font-semibold">Explore Categories</h2>
         <div className="my-4 grid grid-cols-2 md:flex justify-between items-center">
-          <p className="m-2 md:mr-2 w-fit border border-gray-400 rounded-md p-2">
+          <p
+            className="cursor-pointer m-2 md:mr-2 w-fit border border-gray-400 rounded-md p-2"
+            onClick={() => navigate(`/favorite`)}
+          >
             My Favorite
           </p>
           {categories.length > 0 &&

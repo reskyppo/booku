@@ -2,7 +2,7 @@ import HeroSVG from "../assets/hero.svg";
 
 const Hero = () => {
   return (
-    <div className="bg-[#FFE299] py-12">
+    <div className="bg-[#FFE299] py-12 px-2">
       <div className="container mx-auto">
         <div className="flex justify-center items-center">
           <span>
