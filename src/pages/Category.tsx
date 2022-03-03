@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { BiHomeAlt } from "react-icons/bi";
-import Empty from "../components/Empty";
+import { Empty } from "../components";
 
-const Category = () => {
+export const Category = () => {
   let { categoryId, name } = useParams();
   const [categories, setCategories] = useState<any[]>([]);
   const [resCategories, setResCategories] = useState<any[]>([]);
@@ -98,4 +98,3 @@ const Category = () => {
   );
 };
 
-export default Category;

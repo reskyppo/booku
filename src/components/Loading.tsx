@@ -1,4 +1,4 @@
-const Loading = () => {
+export const Loading = () => {
   return (
     <div className="flex h-screen justify-center items-center">
       <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
@@ -19,5 +19,3 @@ const Loading = () => {
     </div>
   );
 };
-
-export default Loading;

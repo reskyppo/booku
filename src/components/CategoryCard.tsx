@@ -7,7 +7,7 @@ type Props = {
   categoryId: number;
 };
 
-const CategoryCard = ({ index, category, categoryId }: Props) => {
+export const CategoryCard = ({ index, category, categoryId }: Props) => {
   const [books, setBooks] = useState<any[]>([]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -45,5 +45,3 @@ const CategoryCard = ({ index, category, categoryId }: Props) => {
     </div>
   );
 };
-
-export default CategoryCard;

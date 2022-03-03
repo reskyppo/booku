@@ -4,7 +4,7 @@ interface Props {
   content: string;
 }
 
-const Empty = ({ content }: Props) => {
+export const Empty = ({ content }: Props) => {
   return (
     <div className="h-96 flex flex-col justify-center items-center">
       <ImSad size={70} />
@@ -14,5 +14,3 @@ const Empty = ({ content }: Props) => {
     </div>
   );
 };
-
-export default Empty;

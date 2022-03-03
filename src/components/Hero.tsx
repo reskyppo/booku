@@ -1,6 +1,6 @@
 import HeroSVG from "../assets/hero.svg";
 
-const Hero = () => {
+export const Hero = () => {
   return (
     <div className="bg-[#FFE299] py-12 px-2">
       <div className="container mx-auto">
@@ -22,5 +22,3 @@ const Hero = () => {
     </div>
   );
 };
-
-export default Hero;

@@ -1,8 +1,7 @@
-import Categories from "../components/Categories";
-import Footer from "../components/Footer";
-import Hero from "../components/Hero";
 import { Helmet } from "react-helmet";
-function Home() {
+import { Categories, Footer, Hero } from "../components";
+
+export const Home = () => {
   return (
     <>
       <Helmet>
@@ -14,6 +13,4 @@ function Home() {
       <Footer />
     </>
   );
-}
-
-export default Home;
+};

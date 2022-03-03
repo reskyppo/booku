@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CategoryCard from "./CategoryCard";
+import { CategoryCard } from "./CategoryCard";
 
-const Categories = () => {
+export const Categories = () => {
   const [categories, setCategories] = useState<any[]>([]);
   const navigate = useNavigate();
 
@@ -45,5 +45,3 @@ const Categories = () => {
     </>
   );
 };
-
-export default Categories;

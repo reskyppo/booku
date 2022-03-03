@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { BiHomeAlt } from "react-icons/bi";
-import Empty from "../components/Empty";
-const Favorite = () => {
+import { Empty } from "../components";
+
+export const Favorite = () => {
   const data = JSON.parse(localStorage.getItem("prod") || "[]");
   const [books, setBooks] = useState<any[]>();
   const [resBooks, setResBooks] = useState<any[]>([]);
@@ -89,5 +90,3 @@ const Favorite = () => {
     </>
   );
 };
-
-export default Favorite;

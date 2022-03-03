@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { saveLocalStorage } from "../lib/utils";
 import { Helmet } from "react-helmet";
-import Loading from "../components/Loading";
+import { Loading } from "../components";
 
 interface IBook {
   id: number;
@@ -16,7 +16,7 @@ interface IBook {
   audio_length: number;
 }
 
-const Book = () => {
+export const Book = () => {
   const data = JSON.parse(localStorage.getItem("prod") || "[]");
 
   const [book, setBook] = useState<IBook>();
@@ -92,7 +92,7 @@ const Book = () => {
                 </div>
               </div>
             </div>
-            <div className="container bg-white rounded-xl shadow-md p-4 mx-0 md:mx-auto mt-12">
+            <div className="container bg-white rounded-xl shadow-md p-4 mx-0 md:mx-auto my-12">
               <h3 className="text-2xl font-bold"> List Chapters</h3>
               {book?.sections?.map((section, idx) => (
                 <div className="my-4" key={idx}>
@@ -110,4 +110,3 @@ const Book = () => {
   );
 };
 
-export default Book;
