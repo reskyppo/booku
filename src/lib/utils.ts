@@ -10,5 +10,4 @@ export const deleteDataLocalStorage = (id: number) => {
     (item: { id: number;}) => item.id !== id
   );
   localStorage.setItem("prod", JSON.stringify(prod));
-  window.location.reload();
 };

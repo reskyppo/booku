@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { saveLocalStorage } from "../lib/utils";
+import { deleteDataLocalStorage, saveLocalStorage } from "../lib/utils";
 import { Helmet } from "react-helmet";
 import { Loading } from "../components";
 
@@ -35,9 +35,14 @@ export const Book = () => {
     page: page,
   };
 
-  const setFavorite = () => {
-    saveLocalStorage(favBook);
-    setIsFavorite(true);
+  const setFavorite = (favorite: boolean, id?: number) => {
+    if (favorite) {
+      saveLocalStorage(favBook);
+      setIsFavorite(true);
+    } else {
+      id && deleteDataLocalStorage(id);
+      setIsFavorite(false);
+    }
   };
 
   useEffect(() => {
@@ -81,12 +86,19 @@ export const Book = () => {
                     ))}
                   </div>
                   <p className="text-sm">{book?.description}</p>
-                  {!isFavorite && (
+                  {!isFavorite ? (
                     <button
                       className="bg-rose-400 py-2 px-4 mt-2 rounded-md text-white"
-                      onClick={() => setFavorite()}
+                      onClick={() => setFavorite(true)}
                     >
                       Save as Favorite
+                    </button>
+                  ): (
+                    <button
+                      className="bg-rose-400 py-2 px-4 mt-2 rounded-md text-white"
+                      onClick={() => setFavorite(false, book?.id)}
+                    >
+                      Delete from favorite
                     </button>
                   )}
                 </div>
@@ -109,4 +121,3 @@ export const Book = () => {
     </>
   );
 };
-
